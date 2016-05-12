@@ -9,6 +9,8 @@
         eType="#//Person" containment="true" eOpposite="#//Person/family"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="noOfChildren" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="singleParent" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" lowerBound="1"

@@ -35,6 +35,8 @@ helper context Families!Member def: isParent: Boolean =
 		not self.familyMother.oclIsUndefined()
 	endif;
 
+helper context Families!Family def: singleParent: Boolean =
+	Set{self.father, self.mother}->one(x | not x.oclIsUndefined());
 
 unique lazy rule Family2ExtendedFamily {
 	from
@@ -42,7 +44,8 @@ unique lazy rule Family2ExtendedFamily {
 	to
 		t : ExtendedFamilies!Family (
 			lastName <- s.lastName,
-			noOfChildren <- s.noOfChildren
+			noOfChildren <- s.noOfChildren,
+			singleParent <- s.singleParent
 		)
 }
 

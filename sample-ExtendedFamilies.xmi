@@ -22,12 +22,12 @@
     <members xsi:type="ExtendedFamilies:Male" firstName="Butters" parents="/2/@members.0 /2/@members.1"/>
     <noOfChildren>1</noOfChildren>
   </ExtendedFamilies:Family>
-  <ExtendedFamilies:Family lastName="Cartman">
+  <ExtendedFamilies:Family lastName="Cartman" singleParent="true">
     <members xsi:type="ExtendedFamilies:Female" firstName="Liane" children="/3/@members.1"/>
     <members xsi:type="ExtendedFamilies:Male" firstName="Eric" parents="/3/@members.0"/>
     <noOfChildren>1</noOfChildren>
   </ExtendedFamilies:Family>
-  <ExtendedFamilies:Family lastName="Testaburger">
+  <ExtendedFamilies:Family lastName="Testaburger" singleParent="true">
     <members xsi:type="ExtendedFamilies:Female" firstName="Alice" children="/4/@members.1"/>
     <members xsi:type="ExtendedFamilies:Female" firstName="Wendy" parents="/4/@members.0"/>
     <noOfChildren>1</noOfChildren>
