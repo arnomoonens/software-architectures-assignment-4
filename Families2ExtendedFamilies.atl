@@ -5,35 +5,21 @@ module Families2ExtendedFamilies;
 
 create OUT: ExtendedFamilies from IN: Families;
 
--- use or instead?
 helper context Families!Member def: isFemale: Boolean =
-	if not self.familyMother.oclIsUndefined() then
-		true
-	else
-		not self.familyDaughter.oclIsUndefined()
-	endif;
-
+	not self.familyMother.oclIsUndefined() or not self.familyDaughter.oclIsUndefined();
 
 helper context Families!Member def: family: Families!Family = 
 	Set{self.familyFather, self.familyMother, self.familySon, self.familyDaughter}
 		->any(f|not f.oclIsUndefined());
 		
 helper context Families!Member def: isChild: Boolean =
-	if not self.familySon.oclIsUndefined() then
-		true
-	else
-		not self.familyDaughter.oclIsUndefined()
-	endif;
+	not self.familySon.oclIsUndefined() or not self.familyDaughter.oclIsUndefined();
 
 helper context Families!Family def: noOfChildren: Integer = 
 	self.sons->union(self.daughters).size();
 
 helper context Families!Member def: isParent: Boolean =
-	if not self.familyFather.oclIsUndefined() then
-		true
-	else
-		not self.familyMother.oclIsUndefined()
-	endif;
+	not self.familyFather.oclIsUndefined() or not self.familyMother.oclIsUndefined();
 
 helper context Families!Family def: singleParent: Boolean =
 	Set{self.father, self.mother}->one(x | not x.oclIsUndefined());
